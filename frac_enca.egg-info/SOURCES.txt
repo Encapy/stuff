@@ -1,0 +1,6 @@
+README.md
+setup.py
+frac_enca.egg-info/PKG-INFO
+frac_enca.egg-info/SOURCES.txt
+frac_enca.egg-info/dependency_links.txt
+frac_enca.egg-info/top_level.txt

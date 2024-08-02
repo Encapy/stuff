@@ -21,20 +21,20 @@ class frac:
 
     def __add__(self, other):
 
-        if isinstance(other, bruch):
+        if isinstance(other, frac):
             if self.denom == other.denom:
                 self.num = self.num + other.num
-                return bruch(self.num, self.denom).simplify()
+                return frac(self.num, self.denom).simplify()
             
             else:
                 self.num *= other.denom
                 other.num *= self.denom
                 self.denom *= other.denom
                 self.num = self.num + other.num
-                return bruch(self.num, self.denom).simplify()
+                return frac(self.num, self.denom).simplify()
             
         elif isinstance(other, int):
-            other = bruch(other, 1)
+            other = frac(other, 1)
             return self + other
         else:
             return NotImplemented
@@ -42,46 +42,46 @@ class frac:
 
     def __sub__ (self, other):
 
-        if isinstance(other, bruch):
+        if isinstance(other, frac):
             if self.denom == other.denom:
                 self.num = self.num - other.num
-                return bruch(self.num, self.denom).simplify()
+                return frac(self.num, self.denom).simplify()
             
             else:
                 self.num *= other.denom
                 other.num *= self.denom
                 self.denom *= other.denom
                 self.num = self.num - other.num
-                return bruch(self.num, self.denom).simplify()
+                return frac(self.num, self.denom).simplify()
             
         elif isinstance(other, int):
-            other = bruch(other, 1)
+            other = frac(other, 1)
             return self - other
         else:
             return NotImplemented
         
     def __mul__ (self, other):
 
-        if isinstance(other, bruch):          
+        if isinstance(other, frac):          
                 self.num *= other.num
                 self.denom *= other.denom
-                return bruch(self.num, self.denom).simplify()
+                return frac(self.num, self.denom).simplify()
             
         elif isinstance(other, int):
-            other = bruch(other, 1)
+            other = frac(other, 1)
             return self * other
         else:
             return NotImplemented
     
     def __truediv__ (self, other):
 
-        if isinstance(other, bruch):          
+        if isinstance(other, frac):          
                 self.num *= other.denom
                 self.denom *= other.num
-                return bruch(self.num, self.denom).simplify()
+                return frac(self.num, self.denom).simplify()
             
         elif isinstance(other, int):
-            other = bruch(other, 1)
+            other = frac(other, 1)
             return self * other
         else:
             return NotImplemented
@@ -93,7 +93,7 @@ class frac:
         self.num //= gcd
         self.denom //= gcd
 
-        return bruch(self.num, self.denom)
+        return frac(self.num, self.denom)
 
 
     def expand(self, value):
@@ -101,4 +101,4 @@ class frac:
         self.num *= value
         self.denom *= value
 
-        return bruch(self.num, self.denom)
+        return frac(self.num, self.denom)
